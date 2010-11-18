@@ -1,13 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-
-#if __name__ == "__main__":
 import ConfigParser
 config = ConfigParser.RawConfigParser()
 config.read("../../etc/whois_client.conf")
 sleep_timer = int(config.get('global','short_timer'))
-use_syslog = config.get('global','errors_in_syslog')
+use_syslog = config.get('global','use_syslog')
 
 from socket import *
 import time
