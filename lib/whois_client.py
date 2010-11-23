@@ -12,15 +12,24 @@ class WhoisClient(object):
         self.parsed_responses = []
 
     def simple_queries(self, queries):
+        """
+        Do a (bulk of) query(ies) and save the result(s)
+        """
         c = Connector(queries, self.server, self.keepalive)
         self.responses = c.fetch()
         
     def parse_queries(self, queries):
+        """
+        Do a (bulk of) query(ies), save the result(s) and parse it.
+        """
         self.simple_queries(queries)
         for query, infos in self.response.iteritems():
             self.parsed_responses.append(WhoisParsers(infos[1], infos[0]))
  
     def ris_queries(self, queries):
+        """
+        Do a (bulk of) query(ies) th get the RIS Whois entry(ies)
+        """
         c = Connector(queries, "riswhois.ripe.net")
         self.response = c.fetch()
         for query, infos in self.response.iteritems():

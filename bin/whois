@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Fetch and display a Whois entry for a particular IP
+
 config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
 
 def usage():
-    print "whois IP <server> <keepalive>"
+    print "./whois IP"
     exit (1)
 
 import sys
@@ -22,12 +24,7 @@ sys.path.append(os.path.join(config.get('global','root'),config.get('global','li
 from whois_client import WhoisClient
 
 
-if len(sys.argv) > 2:
-    if len(sys.argv) < 3:
-        sys.argv[3] = False
-    whois = WhoisClient(sys.argv[2], sys.argv[3])
-else:
-    whois = WhoisClient()
+whois = WhoisClient()
 
 whois.simple_queries(sys.argv[1])
 

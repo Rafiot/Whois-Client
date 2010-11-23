@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Fetch and display a RIS entry for a particular IP
+
 config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
 
 def usage():
-    print "whois IP"
+    print "./get_ris IP"
     exit (1)
 
 import sys

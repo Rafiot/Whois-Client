@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Script initializing the redis database of assignations, used by the sorting processes. 
-It defines also the options of the differents servers. 
+Script initializing the assignations list used to find the right server to query.
 """
 
 config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
@@ -38,8 +37,7 @@ def parse(assignations):
         if url not in ['UNALLOCATED', '6to4', 'teredo', '6bone', 'v6nic']:
             if not re.findall('\.',url):
                 url = 'whois.' + url + '.net'
-        # All the urls has to be pushed in the list: 
-        # elsewhere there is no running process to put them out of redis...
+        # All the urls has to be pushed in the list
         set_urls.add(url)
         # Buggy networks
         if ip == '210.71.128.0/16':
