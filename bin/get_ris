@@ -1,0 +1,32 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
+
+def usage():
+    print "whois IP"
+    exit (1)
+
+import sys
+
+if len(sys.argv) < 2:
+    usage()
+
+import ConfigParser
+import os
+config = ConfigParser.RawConfigParser()
+config.read(config_file)
+
+sys.path.append(os.path.join(config.get('global','root'),config.get('global','libraries')))
+
+from whois_client import WhoisClient
+
+
+whois = WhoisClient()
+
+whois.ris_queries(sys.argv[1])
+
+
+print("ASN: ", whois.parsed_responses[0].route)
+print("Origin: ", whois.parsed_responses[0].origin)
+print("Description: ", whois.parsed_responses[0].description)

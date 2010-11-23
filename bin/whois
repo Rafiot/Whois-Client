@@ -1,0 +1,34 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
+
+def usage():
+    print "whois IP <server> <keepalive>"
+    exit (1)
+
+import sys
+
+if len(sys.argv) < 2:
+    usage()
+
+import ConfigParser
+import os
+config = ConfigParser.RawConfigParser()
+config.read(config_file)
+
+sys.path.append(os.path.join(config.get('global','root'),config.get('global','libraries')))
+
+from whois_client import WhoisClient
+
+
+if len(sys.argv) > 2:
+    if len(sys.argv) < 3:
+        sys.argv[3] = False
+    whois = WhoisClient(sys.argv[2], sys.argv[3])
+else:
+    whois = WhoisClient()
+
+whois.simple_queries(sys.argv[1])
+
+print(whois.response[sys.argv[1]][1])

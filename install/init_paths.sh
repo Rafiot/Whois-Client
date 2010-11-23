@@ -10,7 +10,5 @@ ROOT_PROJECT="/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient"
 VARIABLE="config_file ="
 CONFIG_PATH="\/mnt\/data\/ISFATES-DFHI\/Masterarbeit\/repos\/WhoisClient\/etc\/whois_client.conf"
 
-echo "find ${ROOT_PROJECT} -name \"*.py\" -exec sed -i 's/\(${VARIABLE}\).*/\1${CONFIG_PATH}/' {} \;"
-
 find ${ROOT_PROJECT} -name "*.py" -exec sed -i 's/^\('"${VARIABLE}"'\).*$/\1 "'"${CONFIG_PATH}"'"/' {} \;
 

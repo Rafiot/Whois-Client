@@ -2,19 +2,27 @@
 # -*- coding: utf-8 -*-
 
 from fetcher.connector import * 
-from parser.whois_parsers import * 
+from whois_parsers.whois_parsers import * 
 
 class WhoisClient(object):
     
     def __init__(self, server = None, keepalive = False):
         self.use_server(server)
         self.set_keepalive(keepalive)
+        self.parsed_responses = []
 
     def simple_queries(self, queries):
-        print queries
         c = Connector(queries, self.server, self.keepalive)
+        self.responses = c.fetch()
+        
+    def parse_queries(self, queries):
+        self.simple_queries(queries)
+        for query, infos in self.response.iteritems():
+            self.parsed_responses.append(WhoisParsers(infos[1], infos[0]))
+ 
+    def ris_queries(self, queries):
+        c = Connector(queries, "riswhois.ripe.net")
         self.response = c.fetch()
-        self.parsed_responses = []
         for query, infos in self.response.iteritems():
             self.parsed_responses.append(WhoisParsers(infos[1], infos[0]))
     
@@ -23,6 +31,3 @@ class WhoisClient(object):
 
     def set_keepalive(self, keepalive):
         self.keepalive = keepalive
-    
-    def do_query(self, objects):
-        pass

@@ -6,6 +6,9 @@ Script initializing the redis database of assignations, used by the sorting proc
 It defines also the options of the differents servers. 
 """
 
+config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
+
+
 import re
 import IPy
 
@@ -70,7 +73,7 @@ if __name__ == "__main__":
     import sys
     import ConfigParser
     config = ConfigParser.RawConfigParser()
-    config.read("../etc/whois_client.conf")
+    config.read(config_file)
     
     regex_ipv4 = '([^#][\d./]*)'
     regex_ipv6 = '([^#][\d\w:/]*)'
