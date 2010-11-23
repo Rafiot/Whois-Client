@@ -1,0 +1,16 @@
+********* Usage *********
+
+In the bin directory, you can find two script: 
+- whois: 
+    Usage: ./whois IP
+    Displays the whois entry of this IP
+- get_ris:
+    Usage: ./get_ris IP
+    Displays origin of the IP, ASN and description of the ASN 
+
+
+Of course, you can also use this client as a library for your own applications. 
+In this case, you should take a look at 
+    lib/whois_client.py
+
+You can also do bulk queries: instear of a string, you can pass to the functions a list of IPs.
