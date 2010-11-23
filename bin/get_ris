@@ -27,6 +27,6 @@ whois = WhoisClient()
 whois.ris_queries(sys.argv[1])
 
 
-print("ASN: ", whois.parsed_responses[0].route)
-print("Origin: ", whois.parsed_responses[0].origin)
-print("Description: ", whois.parsed_responses[0].description)
+print("Origin:\t\t%s" % whois.parsed_responses[0].route)
+print("ASN:\t\t%s" % whois.parsed_responses[0].origin)
+print("Description:\t%s" % whois.parsed_responses[0].description)
