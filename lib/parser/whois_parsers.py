@@ -26,7 +26,7 @@ Afrinic = {
     'netname':  'netname:[ ]*([^\n]*)'
 }    
 
-class Whois(AbstractParser):
+class WhoisParsers(AbstractParser):
     """
     This class return a dump of the Whois. 
     Til we have a real implementation of whois in python, 
