@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
+
 import ConfigParser
 config = ConfigParser.RawConfigParser()
-config.read("../../etc/whois_client.conf")
+config.read(config_file)
 use_syslog = config.get('global','use_syslog')
 
 if use_syslog:
@@ -31,7 +33,7 @@ class Connector(object):
     """
     support_keepalive = config.get('servers', 'support_keepalive').split()
     
-    def __init__(self, server = None, keepalive = False, queries):
+    def __init__(self, queries, server = None, keepalive = False):
         """
         Initialize the two connectors to the redis server, set variables depending on the server
         Initialize a whois fetcher on this server

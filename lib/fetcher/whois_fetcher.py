@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
+
 import ConfigParser
 config = ConfigParser.RawConfigParser()
-config.read("../../etc/whois_client.conf")
+config.read(config_file)
 sleep_timer = int(config.get('global','short_timer'))
 use_syslog = config.get('global','use_syslog')
 
