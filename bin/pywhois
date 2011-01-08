@@ -1,0 +1,21 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Fetch and display a Whois entry for a particular IP
+
+def usage():
+    print "pywhois IP"
+    exit (1)
+
+import sys
+
+if len(sys.argv) < 2:
+    usage()
+
+import whoisclient
+
+whois = whoisclient.WhoisClient()
+
+whois.simple_queries(sys.argv[1])
+
+print(whois.response[sys.argv[1]][1])

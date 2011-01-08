@@ -1,11 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
+config_file = "../etc/whois_client.conf"
 
 import ConfigParser
+import os
 config = ConfigParser.RawConfigParser()
-config.read(config_file)
+config.read(os.path.join(os.path.dirname(__file__), config_file))
 use_syslog = config.get('global','use_syslog')
 
 if use_syslog:

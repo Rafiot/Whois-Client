@@ -1,0 +1,7 @@
+To get a whois entry:
+    pywhois <IP>
+
+To get a RIS entry: 
+    pyRIS <IP>
+
+More information on how to use the lib ASAP.

@@ -5,9 +5,6 @@
 Script initializing the assignations list used to find the right server to query.
 """
 
-config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
-
-
 import re
 import IPy
 
@@ -67,11 +64,6 @@ def set_options():
             url_options[url][3] = port
 
 if __name__ == "__main__":
-    import os 
-    import sys
-    import ConfigParser
-    config = ConfigParser.RawConfigParser()
-    config.read(config_file)
     
     regex_ipv4 = '([^#][\d./]*)'
     regex_ipv6 = '([^#][\d\w:/]*)'
@@ -91,7 +83,7 @@ if __name__ == "__main__":
 
     set_options()
 
-    f = open(os.path.join(config.get('global','root'),config.get('global','assignations')), 'w')
+    f = open('whoisclient/fetcher/assignations.py', 'w')
     f.write("assignation_table = %s\nwhois_servers = %s\n" % (str(assign_table), str(url_options)))
     f.close()
 

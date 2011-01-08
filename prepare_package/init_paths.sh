@@ -6,9 +6,9 @@
 # each of them is usable from everywhere.
 
 
-ROOT_PROJECT="/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient"
+ROOT_PROJECT="whoisclient"
 VARIABLE="config_file ="
-CONFIG_PATH="\/mnt\/data\/ISFATES-DFHI\/Masterarbeit\/repos\/WhoisClient\/etc\/whois_client.conf"
+CONFIG_PATH="..\/etc\/whois_client.conf"
 
 find ${ROOT_PROJECT} -name "*.py" -exec sed -i 's/^\('"${VARIABLE}"'\).*$/\1 "'"${CONFIG_PATH}"'"/' {} \;
 

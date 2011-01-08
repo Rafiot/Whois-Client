@@ -3,10 +3,8 @@
 
 # Fetch and display a RIS entry for a particular IP
 
-config_file = "/mnt/data/ISFATES-DFHI/Masterarbeit/repos/WhoisClient/etc/whois_client.conf"
-
 def usage():
-    print "./get_ris IP"
+    print "pyRIS IP"
     exit (1)
 
 import sys
@@ -14,17 +12,9 @@ import sys
 if len(sys.argv) < 2:
     usage()
 
-import ConfigParser
-import os
-config = ConfigParser.RawConfigParser()
-config.read(config_file)
+import whoisclient
 
-sys.path.append(os.path.join(config.get('global','root'),config.get('global','libraries')))
-
-from whois_client import WhoisClient
-
-
-whois = WhoisClient()
+whois = whoisclient.WhoisClient()
 
 whois.ris_queries(sys.argv[1])
 

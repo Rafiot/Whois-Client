@@ -1,0 +1,9 @@
+********* Preparation *********
+
+Take a look at the scripts in this directory: 
+	init_paths.sh will initialize the path to the config file in all the files that need it
+	init_assignations.py initialize the assignations by using the files provided by the whois client of debian (ip{6}_del_list)
+
+Ensure the paths are fine.
+
+When it is fine launch the script from the main dir of the project
