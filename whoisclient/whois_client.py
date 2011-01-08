@@ -31,8 +31,8 @@ class WhoisClient(object):
         Do a (bulk of) query(ies) th get the RIS Whois entry(ies)
         """
         c = Connector(queries, "riswhois.ripe.net")
-        self.response = c.fetch()
-        for query, infos in self.response.iteritems():
+        self.responses = c.fetch()
+        for query, infos in self.responses.iteritems():
             self.parsed_responses.append(WhoisParsers(infos[1], infos[0]))
     
     def use_server(self, server):

@@ -18,4 +18,4 @@ whois = whoisclient.WhoisClient()
 
 whois.simple_queries(sys.argv[1])
 
-print(whois.response[sys.argv[1]][1])
+print(whois.responses[sys.argv[1]][1])
